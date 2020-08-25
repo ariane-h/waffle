@@ -1,9 +1,3 @@
-// adding new chat documents
-// setting up a real-time listener to get new chats
-
-// updating the username
-//updating the room
-
 class Chatroom {
 	constructor(room, username) {
 		this.room = room;
@@ -21,17 +15,22 @@ class Chatroom {
 		const response = await this.chats.add(chat);
 		return response;
 	}
-	async deleteChat(id) {
-		await db.collection("chats").doc(id).delete();
+	deleteChat(id) {
+		db.collection("chats").doc(id).delete();
 	}
 	getChats(callback) {
-		this.chats.onSnapshot((snapshot) => {
-			snapshot.docChanges().forEach((change) => {
-				if (change.type === "added") {
-					callback({ ...change.doc.data(), id: change.doc.id });
-				}
+		this.unsub = this.chats
+			.where("room", "==", this.room)
+			.orderBy("created_at")
+			.onSnapshot((snapshot) => {
+				snapshot.docChanges().forEach((change) => {
+					if (change.type === "added") {
+						const data = { ...change.doc.data(), id: change.doc.id };
+						callback(data);
+						// callback(change.doc.data());
+					}
+				});
 			});
-		});
 	}
 	updateName(username) {
 		this.username = username;

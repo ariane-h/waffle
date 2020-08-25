@@ -18,9 +18,11 @@ newChatForm.addEventListener("submit", (e) => {
 // delete a chat
 
 chatList.addEventListener("click", (e) => {
+	const chat = e.target.id;
+
 	if (e.target.tagName === "I") {
-		chatroom.deleteChat(e.target.id);
 		chatUI.clear();
+		chatroom.deleteChat(chat);
 		chatroom.getChats((chat) => chatUI.render(chat));
 	}
 });
