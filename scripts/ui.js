@@ -12,7 +12,7 @@ class ChatUI {
 		});
 
 		const html = `
-		<li class="list-group-item">
+		<li class="list-group-item" id="${data.id}">
 				<div class="container">
 					<div class="row">
 						<div class="col-10 align-self-start">

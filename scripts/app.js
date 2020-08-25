@@ -18,12 +18,19 @@ newChatForm.addEventListener("submit", (e) => {
 // delete a chat
 
 chatList.addEventListener("click", (e) => {
-	const chat = e.target.id;
+	const chat = document.getElementById(e.target.id);
 
 	if (e.target.tagName === "I") {
-		chatUI.clear();
-		chatroom.deleteChat(chat);
-		chatroom.getChats((chat) => chatUI.render(chat));
+		chat.innerHTML = "";
+		// chatUI.clear();
+		// chatList.childNodes.forEach((listItem) => {
+		// 	console.log(listItem.id);
+		// 	let chatToRemove = listItem.id === e.target.id;
+		// 	console.log(chatToRemove);
+		// });
+
+		// chatroom.deleteChat(chat);
+		// chatroom.getChats((chat) => chatUI.render(chat));
 	}
 });
 
@@ -60,3 +67,6 @@ const chatroom = new Chatroom("general", username);
 chatroom.getChats((data) => {
 	chatUI.render(data);
 });
+
+// console.log(chatList);
+// chatUI.remove("JrTHXZcN83nQVeICf232");

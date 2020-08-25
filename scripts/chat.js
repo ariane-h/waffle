@@ -26,7 +26,7 @@ class Chatroom {
 				snapshot.docChanges().forEach((change) => {
 					if (change.type === "added") {
 						const data = { ...change.doc.data(), id: change.doc.id };
-						callback(data);
+						callback({ ...data });
 						// callback(change.doc.data());
 					}
 				});
