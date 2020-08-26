@@ -16,21 +16,10 @@ newChatForm.addEventListener("submit", (e) => {
 });
 
 // delete a chat
-
 chatList.addEventListener("click", (e) => {
-	const chat = document.getElementById(e.target.id);
-
+	const message = document.getElementById(e.target.id);
 	if (e.target.tagName === "I") {
-		chat.innerHTML = "";
-		// chatUI.clear();
-		// chatList.childNodes.forEach((listItem) => {
-		// 	console.log(listItem.id);
-		// 	let chatToRemove = listItem.id === e.target.id;
-		// 	console.log(chatToRemove);
-		// });
-
-		// chatroom.deleteChat(chat);
-		// chatroom.getChats((chat) => chatUI.render(chat));
+		message.parentNode.removeChild(message);
 	}
 });
 
@@ -38,11 +27,8 @@ chatList.addEventListener("click", (e) => {
 newNameForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 	const newName = newNameForm.name.value.trim();
-	// update name via chatroom class
 	chatroom.updateName(newName);
-	//reset the form
 	newNameForm.reset();
-	// show then hide the update message
 	updateMssg.innerText = `Your name was updated to ${newName}`;
 	setTimeout(() => (updateMssg.innerText = ""), 3000);
 });
@@ -56,17 +42,11 @@ rooms.addEventListener("click", (e) => {
 	}
 });
 
-// check local storage for a name
 const username = localStorage.username ? localStorage.username : "anon";
 
-// class instances
 const chatUI = new ChatUI(chatList);
 const chatroom = new Chatroom("general", username);
 
-//get chats and render
 chatroom.getChats((data) => {
 	chatUI.render(data);
 });
-
-// console.log(chatList);
-// chatUI.remove("JrTHXZcN83nQVeICf232");
