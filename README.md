@@ -2,7 +2,7 @@
 
 A JavaScript real-time chat web app.
 
-![waffle demo gif](/img/waffle_demo.gif)
+<img src="/img/waffle_demo.gif" width="550">
 
 ## :art: Features
 
