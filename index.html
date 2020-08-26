@@ -19,61 +19,76 @@
 	</head>
 	<body>
 		<!-- container & title -->
-		<div class="container my-4 rounded p-4 h-100">
-			<h1 class="font-weight-light my-4 text-center">
-				waffle chat 🧇
-			</h1>
-
-			<!-- buttons for chatrooms -->
-
-			<div class="chat-rooms mb-3 text-center container h-10">
-				<div class="row">
-					<div class="my-3 text-muted col col-4">Choose a room:</div>
-					<button class="btn btn-outline-secondary col m-1" id="general">
-						#general
-					</button>
-					<button class="btn btn-outline-secondary col m-1" id="recipes">
-						#recipes
-					</button>
-					<button class="btn btn-outline-secondary col m-1" id="cafes">
-						#cafes
-					</button>
+		<div class="container my-4 rounded p-4">
+			<!-- row one  -->
+			<div class="row h-10">
+				<div class="col text-center">
+					<img src="img/waffle_logo.png" width="200" alt="waffle logo" />
 				</div>
 			</div>
 
-			<!-- chat list / window -->
+			<!-- row two - buttons for chatrooms -->
 
-			<div class="chat-window h-50 overflow-auto">
-				<ul class="chat-list list-group"></ul>
+			<div class="chat-rooms row mb-3 text-center h-10 m-0">
+				<div class="my-3 text-muted col col-4">Choose a room:</div>
+				<button class="btn btn-outline-secondary col m-1" id="general">
+					#general
+				</button>
+				<button class="btn btn-outline-secondary col m-1" id="recipes">
+					#recipes
+				</button>
+				<button class="btn btn-outline-secondary col m-1" id="cafes">
+					#cafes
+				</button>
 			</div>
 
-			<!-- new chat form -->
+			<!-- row three - chat list / window -->
 
-			<form class="new-chat my-3">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">Your message:</div>
-					</div>
-					<input type="text" id="message" class="form-control" required />
-					<div class="input-group-append">
-						<input type="submit" class="btn" value="send" />
-					</div>
+			<div
+				class="chat-window row h-50 overflow-auto rounded m-0"
+				style="background-color: #fff9eb;"
+			>
+				<div class="col">
+					<ul class="chat-list list-group"></ul>
 				</div>
-			</form>
+			</div>
 
-			<!-- update name form -->
-			<form class="new-name my-3">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<div class="input-group-text">Update name:</div>
-					</div>
-					<input type="text" id="name" class="form-control" required />
-					<div class="input-group-append">
-						<input type="submit" class="btn" value="update" />
-					</div>
+			<!-- row three - new chat form -->
+
+			<div class="row h-10">
+				<div class="col">
+					<form class="new-chat my-3">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text">Your message:</div>
+							</div>
+							<input type="text" id="message" class="form-control" required />
+							<div class="input-group-append">
+								<input type="submit" class="btn" value="send" />
+							</div>
+						</div>
+					</form>
 				</div>
-				<div class="update-mssg"></div>
-			</form>
+			</div>
+
+			<!-- row four - update name form -->
+
+			<div class="row h-10">
+				<div class="col">
+					<form class="new-name my-3">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text">Update name:</div>
+							</div>
+							<input type="text" id="name" class="form-control" required />
+							<div class="input-group-append">
+								<input type="submit" class="btn" value="update" />
+							</div>
+						</div>
+						<div class="update-mssg"></div>
+					</form>
+				</div>
+			</div>
 		</div>
 		<!-- scripts -->
 		<script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>

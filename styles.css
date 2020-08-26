@@ -1,5 +1,5 @@
 body {
-	background: #ddeef1;
+	background: #ffe099;
 }
 
 .container {
@@ -25,4 +25,7 @@ body {
 .update-mssg {
 	text-align: center;
 	margin: 20px auto;
+}
+.chat-list {
+	padding: 15px 2px 15px 2px;
 }
