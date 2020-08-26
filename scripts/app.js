@@ -21,6 +21,7 @@ chatList.addEventListener("click", (e) => {
 	if (e.target.tagName === "I") {
 		message.parentNode.removeChild(message);
 	}
+	chatroom.deleteChat(e.target.id);
 });
 
 // update username
